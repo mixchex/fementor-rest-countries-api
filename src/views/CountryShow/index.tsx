@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 
 import axios from 'axios';
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 
 import { Country } from '../../Model';
 
+import Loader from '../../components/Loader';
 import Layout from '../Layout';
 import CountryListItem from '../../components/CountryListItem';
-
 interface Currency {
     name: string,
     symbol: string
@@ -47,13 +47,16 @@ const defaultCountry = {
 
 const CountryShow = () => {
     const params = useParams();
+    const location = useLocation();
 
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState();
     const [country, setCountry] = useState(defaultCountry);
     const [nativeName, setNativeName] = useState('');
     const [currencies, setCurrencies] = useState(['none']);
 
     const getCountry = (countryName: string | undefined) => {
+        setLoading(true);
         axios.get(`https://restcountries.com/v3.1/name/${countryName}`)
             .then(response => {
                 const data = response.data[0]
@@ -63,8 +66,9 @@ const CountryShow = () => {
                 console.log('country', data);
                 setLoading(false);
             })
-            .catch(error => {
-                console.log('errror', error);
+            .catch(err => {
+                console.log('errror', err);
+
                 setLoading(false);
             })
     }
@@ -73,6 +77,11 @@ const CountryShow = () => {
         let country = params.country;
         getCountry(country);
     }, []);
+
+    useEffect(() => {
+        let country = params.country;
+        getCountry(country);
+    }, [location]);
 
     const getNativeName = (data: Country): string => {
         return typeof Object.values(data.name.nativeName)[0].common != undefined
@@ -97,8 +106,11 @@ const CountryShow = () => {
                         <span>Back</span>
                     </Link>
                 </div>
-                
-                {!loading &&
+                {loading ? 
+                    <div className="bg-white rounded-full p-4 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <Loader />
+                    </div>
+                    :
                     <CountryListItem
                         name={country.name.official}
                         nativeName={nativeName}

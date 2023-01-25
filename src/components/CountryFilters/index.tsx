@@ -55,7 +55,7 @@ const CountryFilters = () => {
 
     const setSearchValueForQueryString = (value: string) => {
         let filters: Filters = {};
-        value == "" ? delete filters.s : (filters.s = value);
+        value === "" ? delete filters.s : (filters.s = value);
         navigate({
             pathname: location.pathname,
             search: getQueryStringFromFilters(filters),
@@ -105,7 +105,7 @@ const CountryFilters = () => {
                     <ul className="my-2 text-center">
                         {regions.map((region, i) => 
                             <li key={i}>
-                                <button onClick={() => handleRegionClick(region)} className={`w-full text-left px-6 py-2 hover:bg-gray-100 dark:hover:bg-blue-800 focus:outline-offset-2 focus:outline-2 focus:outline-blue-800 dark:focus:outline-gray-100 cursor-pointer ${currentRegion.toLowerCase() == region.toLowerCase() && 'bg-gray-100 font-semibold dark:bg-blue-900 dark:text-white'}`}>
+                                <button onClick={() => handleRegionClick(region)} className={`w-full text-left px-6 py-2 hover:bg-gray-100 dark:hover:bg-blue-800 focus:outline-offset-2 focus:outline-2 focus:outline-blue-800 dark:focus:outline-gray-100 cursor-pointer ${currentRegion.toLowerCase() === region.toLowerCase() && 'bg-gray-100 font-semibold dark:bg-blue-900 dark:text-white'}`}>
                                     {region}
                                 </button>
                             </li>

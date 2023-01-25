@@ -13,47 +13,64 @@ import CountryList from '../../components/CountryList';
 const CountryIndex = () => {
     const location = useLocation();
 
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState({});
     const [timer, setTimer] = useState<number | null>(null);
     const [countries, setCountries] = useState<Country[]>([]);
 
     useEffect(() => {
+        getCountries();
+    }, []);
+
+    useEffect(() => {
         debounceCountries();
-    }, [location.search])
+    }, [location])
 
     const debounceCountries = () => {
-        if (timer) {
-            window.clearTimeout(timer);
-        }
-        setTimer(window.setTimeout(() => {
-            if (location.search) {
-                getCountries();
+        setError({});
+        if (location.search !== "") {
+            if (timer) {
+                window.clearTimeout(timer);
             }
-        }, 500));
+            setTimer(window.setTimeout(() => {
+                if (location.search) {
+                    getCountries();
+                }
+            }, 500));
+        }
+        else {
+            getCountries();
+        }
     }
 
     const getCountries = () => {
+        setLoading(true);
         const q = new URLSearchParams(location.search);
-        let url = "https://restcountries.com/v3.1/all";
+        let url = "";
         if (q.get('s') != null) {
             url = `https://restcountries.com/v3.1/name/${q.get('s')}`
         }
         else if (q.get('region') != null) {
             url = `https://restcountries.com/v3.1/region/${q.get('region')}`
         }
+        else {
+            url = "https://restcountries.com/v3.1/all";
+        }
         axios.get(url)
             .then(response => {
-                console.log('response', response.data);
                 setCountries(response.data);
+                setLoading(false);
             })
-            .catch(error => {
-                console.log('error', error);
+            .catch(err => {
+                setLoading(false);
+                setError(err.response.data);
             });
     }
 
     return (
         <Layout>
-            <CountryFilters  />
-            <CountryList countries={countries} />
+            <CountryFilters />
+            <CountryList error={error} loading={loading} countries={countries} />
         </Layout>
     )
 }

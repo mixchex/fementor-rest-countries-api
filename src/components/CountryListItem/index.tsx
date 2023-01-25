@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-
 import borderMap from '../../assets/borders.json';
 
 interface Props {
@@ -46,7 +45,6 @@ const CountryListItem = ({
     }
 
     const theBorder = (key: string) => {
-        console.log('ke', key);
         const keyTyped = key as keyof typeof borderMap;
         return borderMap[keyTyped]; 
     }
