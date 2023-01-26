@@ -9,6 +9,7 @@ import { Country } from '../../Model';
 import Loader from '../../components/Loader';
 import Layout from '../Layout';
 import CountryListItem from '../../components/CountryListItem';
+import Alert from '../../components/Alert';
 interface Currency {
     name: string,
     symbol: string
@@ -63,12 +64,10 @@ const CountryShow = () => {
                 setCountry(data);
                 setNativeName(getNativeName(data));
                 setCurrencies(getCurrencies(data));
-                console.log('country', data);
                 setLoading(false);
             })
             .catch(err => {
-                console.log('errror', err);
-
+                setError(err.response.data);
                 setLoading(false);
             })
     }
@@ -107,24 +106,26 @@ const CountryShow = () => {
                     </Link>
                 </div>
                 {loading ? 
-                    <div className="bg-white rounded-full p-4 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <Loader />
-                    </div>
+                    <Loader />
                     :
-                    <CountryListItem
-                        name={country.name.official}
-                        nativeName={nativeName}
-                        flagSrc={country.flags.svg}
-                        capital={country.capital}
-                        currencies={currencies}
-                        region={country.region}
-                        subregion={country.subregion}
-                        population={country.population}
-                        languages={country.languages}
-                        borders={country.borders}
-                        tld={country.tld}
-                        card={false}
-                     />
+                    (
+                        error ? 
+                        <Alert error={error} /> :
+                        <CountryListItem
+                            name={country.name.official}
+                            nativeName={nativeName}
+                            flagSrc={country.flags.svg}
+                            capital={country.capital}
+                            currencies={currencies}
+                            region={country.region}
+                            subregion={country.subregion}
+                            population={country.population}
+                            languages={country.languages}
+                            borders={country.borders}
+                            tld={country.tld}
+                            card={false}
+                            />
+                    )
                 }
             </div>
         </Layout>

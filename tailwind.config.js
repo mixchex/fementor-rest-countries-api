@@ -50,7 +50,22 @@ module.exports = {
     fontFamily: {
       'sans': ['Nunito Sans', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        'movein': {
+          '0%': { transform: 'translateY(200%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        'moveout': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(200%)' },
+        },
+      },
+      animation: {
+        'move-in': 'moveIn 0.5s ease-in',
+        'move-out': 'moveOut 0.3s ease-out'
+      }
+    },
   },
   plugins: [],
 }
