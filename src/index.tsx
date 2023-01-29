@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/fementor-rest-countries-api">
       <Routes>
         <Route index path="./" element={<CountryIndex />} />
         <Route path="./countries" element={<Navigate replace to="/" />} />
