@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [fementor-rest-countries-api](https://github.com/mixchex/fementor-rest-countries-api)
-- Live Site URL: [https://mixchex.github.io/](https://mixchex.github.io/)
+- Solution URL: [https://github.com/mixchex/fementor-rest-countries-api](https://github.com/mixchex/fementor-rest-countries-api)
+- Live Site URL: [https://mixchex.github.io/fementor-rest-countries-api/](https://mixchex.github.io/fementor-rest-countries-api/)
 
 ## My process
 
