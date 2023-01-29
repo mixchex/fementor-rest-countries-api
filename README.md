@@ -1,6 +1,6 @@
 # Frontend Mentor - REST Countries API with color theme switcher solution
 
-This is my (@mixchex) solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my ([@mixchex](https://github.com/mixchex)) solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -19,7 +19,9 @@ This is my (@mixchex) solution to the [REST Countries API with color theme switc
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
-A countries listing microsite with the ability to filter country be your search term or filters. The app also remembers your setting for light or darkmode using the localStorage API.
+
+A countries listing microsite with the ability to filter country be your search term or filters. The app also remembers your setting for light or darkmode using the localStorage API. 
+
 ### The challenge
 
 Users should be able to:
@@ -42,7 +44,8 @@ Users should be able to:
 
 ## My process
 
-I initally developed the app within the bounds of the designs, but further developed the layout a to make the screens feel a little more integrated and aligned to make for a more cohesive experience.
+I initally developed the app within the bounds of the designs, but further developed the layout a to make the screens feel a little more integrated and aligned to make for a more cohesive experience. I also thought it would be fun to add a different (Zimbabwe flag) favicon as that's where I was born.
+
 ### Built with
 
 - Semantic HTML5 markup
