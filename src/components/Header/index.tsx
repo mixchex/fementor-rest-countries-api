@@ -1,5 +1,6 @@
 import React from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
+import { Link } from "react-router-dom";
 
 interface Props {
     dark: Boolean
@@ -15,7 +16,7 @@ const Header = ({
             <div className="container mx-auto flex justify-between items-center h-20 md:h-24 px-2">
                 <div className="flex flex-col sm:flex-row sm:space-x-2 items-baseline p-3">
                     <h1 className="font-bold">
-                        <a href="/" rel="home" className="px-1 py-1 block">Where in the World?</a>
+                        <Link to="/" rel="home" className="px-1 py-1 block">Where in the World?</Link>
                     </h1>
                 </div>
                 <div className="flex space-x-4 items-center">
