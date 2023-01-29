@@ -1,6 +1,7 @@
 {
   "name": "rest-countries-api",
   "homepage": "https://mixchex.github.io/fementor-rest-countries-api/",
+  "start_url": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +32,7 @@
     "eject": "react-scripts eject",
     "watch": "npx tailwindcss -i ./src/index.css -o ./src/App.css --watch",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d docs"
+    "deploy": "gh-pages -b main -d docs"
   },
   "eslintConfig": {
     "extends": [
