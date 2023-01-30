@@ -16,10 +16,10 @@ root.render(
   <React.StrictMode>
     <Router basename="/fementor-rest-countries-api">
       <Routes>
-        <Route index path="./" element={<CountryIndex />} />
-        <Route path="./countries" element={<Navigate replace to="/" />} />
-        <Route path="./countries/:country" element={<CountryShow />} />
-        <Route path="./*" element={<NotFound />} />
+        <Route index path="/" element={<CountryIndex />} />
+        <Route path="/countries" element={<Navigate replace to="/" />} />
+        <Route path="/countries/:country" element={<CountryShow />} />
+        <Route element={<NotFound />} />
       </Routes>
     </Router>
   </React.StrictMode>
