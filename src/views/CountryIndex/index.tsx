@@ -48,13 +48,13 @@ const CountryIndex = () => {
         const q = new URLSearchParams(location.search);
         let url = "";
         if (q.get('s') != null) {
-            url = `https://restcountries.com/v3.1/name/${q.get('s')}`
+            url = `/v3.1/name/${q.get('s')}`
         }
         else if (q.get('region') != null) {
-            url = `https://restcountries.com/v3.1/region/${q.get('region')}`
+            url = `/v3.1/region/${q.get('region')}`
         }
         else {
-            url = "https://restcountries.com/v3.1/all";
+            url = "/v3.1/all";
         }
         axios.get(url)
             .then(response => {

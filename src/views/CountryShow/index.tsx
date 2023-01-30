@@ -58,7 +58,7 @@ const CountryShow = () => {
 
     const getCountry = (countryName: string | undefined) => {
         setLoading(true);
-        axios.get(`https://restcountries.com/v3.1/name/${countryName}`)
+        axios.get(`/v3.1/name/${countryName}`)
             .then(response => {
                 const data = response.data[0]
                 setCountry(data);
