@@ -14,14 +14,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <Router basename="/fementor-rest-countries-api">
       <Routes>
-        <Route index path="/" element={<CountryIndex />} />
-        <Route path="/countries" element={<Navigate replace to="/" />} />
-        <Route path="/countries/:country" element={<CountryShow />} />
+        <Route index path="/fementor-rest-countries-api" element={<CountryIndex />} />
+        <Route path="/fementor-rest-countries-api/countries" element={<Navigate replace to="/fementor-rest-countries-api/" />} />
+        <Route path="/fementor-rest-countries-api/countries/:country" element={<CountryShow />} />
         <Route element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </Router>
   </React.StrictMode>
 );
 
