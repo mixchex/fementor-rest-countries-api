@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -14,14 +14,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router basename="/fementor-rest-countries-api">
+    <HashRouter>
       <Routes>
         <Route index path="/" element={<CountryIndex />} />
         <Route path="/countries" element={<Navigate replace to="/" />} />
         <Route path="/countries/:country" element={<CountryShow />} />
         <Route element={<NotFound />} />
       </Routes>
-    </Router>
+    </HashRouter>
   </React.StrictMode>
 );
 
