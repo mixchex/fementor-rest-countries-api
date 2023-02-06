@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../api';
 
 import { Country } from "../../Model";
 
@@ -48,13 +48,13 @@ const CountryIndex = () => {
         const q = new URLSearchParams(location.search);
         let url = "";
         if (q.get('s') != null) {
-            url = `https://restcountries.com/v3.1/name/${q.get('s')}`
+            url = `name/${q.get('s')}`
         }
         else if (q.get('region') != null) {
-            url = `https://restcountries.com/v3.1/region/${q.get('region')}`
+            url = `region/${q.get('region')}`
         }
         else {
-            url = "https://restcountries.com/v3.1/all";
+            url = "all";
         }
         axios.defaults.withCredentials = false;
         axios.get(url)

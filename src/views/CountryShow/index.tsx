@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 
-import axios from 'axios';
+import axios from '../../api';
+
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 
 import { Country } from '../../Model';
@@ -58,8 +59,7 @@ const CountryShow = () => {
 
     const getCountry = (countryName: string | undefined) => {
         setLoading(true);
-        axios.defaults.withCredentials = false;
-        axios.get(`https://restcountries.com/v3.1/name/${countryName}`)
+        axios.get(`name/${countryName}`)
             .then(response => {
                 const data = response.data[0]
                 setCountry(data);
