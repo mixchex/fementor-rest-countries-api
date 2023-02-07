@@ -73,4 +73,5 @@ I will definitely be using more TypeScript in future to enhance my skillset.
 
 ## Acknowledgments
 
-As always, thanks to the teams for React, Typescript and Tailwind CSS for creating awesome resources.
+As always, thanks to the teams for React, Typescript and Tailwind CSS for creating awesome resources. 
+[Zimbabwe icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/zimbabwe)

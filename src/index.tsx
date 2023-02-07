@@ -1,23 +1,32 @@
-import React from 'react';
-import { HashRouter, BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React from "react";
+import {
+  HashRouter,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-import CountryIndex from './views/CountryIndex';
-import CountryShow from './views/CountryShow';
-import NotFound from './views/NotFound';
+import CountryIndex from "./views/CountryIndex";
+import CountryShow from "./views/CountryShow";
+import NotFound from "./views/NotFound";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <Router basename="/fementor-rest-countries-api">
       <Routes>
         <Route index path="/" element={<CountryIndex />} />
-        <Route path="/countries" element={<Navigate replace to="/fementor-rest-countries-api/" />} />
+        <Route
+          path="/countries"
+          element={<Navigate replace to="/fementor-rest-countries-api/" />}
+        />
         <Route path="/countries/:country" element={<CountryShow />} />
         <Route element={<NotFound />} />
       </Routes>
