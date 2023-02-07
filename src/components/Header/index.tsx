@@ -12,7 +12,7 @@ const Header = ({
     onToggleDarkMode
 }: Props) => {
     return (
-        <div className=" bg-white dark:bg-blue-700 dark:text-white shadow-md transition-colors">
+        <header className=" bg-white dark:bg-blue-700 dark:text-white shadow-md transition-colors">
             <div className="container mx-auto flex justify-between items-center h-20 md:h-24 px-2">
                 <div className="flex flex-col sm:flex-row sm:space-x-2 items-baseline p-3">
                     <h1 className="font-bold">
@@ -35,7 +35,7 @@ const Header = ({
                     </button>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 export default Header;

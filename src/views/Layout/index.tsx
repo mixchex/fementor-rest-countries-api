@@ -29,9 +29,9 @@ const Layout = ({
                 dark={dark}
                 onToggleDarkMode={toggleDarkMode}
             />
-            <div className="container mx-auto py-6 md:py-8 md:text-sm">
+            <main className="container mx-auto py-6 md:py-8 md:text-sm">
                 {children}
-            </div>
+            </main>
         </div>
         </div>
     )
